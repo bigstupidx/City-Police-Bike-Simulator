@@ -16,7 +16,8 @@ public class StartMenu : MonoBehaviour {
 	{
 		AppSoundManager.Get ().PlaySfx (Sfx.Type.sfx_click);
 		loadScreen.SetActive (true);
-		GoTo.LoadEnvironmentChoose();
+		GoTo.LoadMegaCity ();
+		//GoTo.LoadEnvironmentChoose();
 	}
 
 	public void onShopPress()

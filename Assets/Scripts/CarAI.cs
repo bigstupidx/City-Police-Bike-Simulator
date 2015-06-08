@@ -34,7 +34,7 @@ public class CarAI : MonoBehaviour {
 	void FixedUpdate () 
 	{
 		//TODO: zamytit't ety wtyky, kogda ne pokazani knopki ne davat' ta4kam exat'
-		if(!isRide)
+		if(buttons != null && !isRide)
 		{
 			isRide = buttons.activeSelf;
 			return;

@@ -4,6 +4,11 @@ using System.Collections;
 public class GoTo : MonoBehaviour {
 	
 
+	public static void LoadMegaCity()
+	{
+		Application.LoadLevel ("main_game_megaCity");
+	}
+
 	public static void LoadMenu()
 	{
 		Application.LoadLevel ("main_menu");
