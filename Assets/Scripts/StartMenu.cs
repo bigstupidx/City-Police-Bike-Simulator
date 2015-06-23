@@ -12,14 +12,23 @@ public class StartMenu : MonoBehaviour {
 	{
 		Application.OpenURL ("https://play.google.com/store/apps/developer?id=i6+Games");
 	}
+
 	public void onGamePress()
 	{
 		AppSoundManager.Get ().PlaySfx (Sfx.Type.sfx_click);
 		loadScreen.SetActive (true);
 		GoTo.LoadMegaCity ();
+		StartCoroutine (showIntersential ());
+		AdMob_Manager.Instance.curTime = 0f;
+		AdMob_Manager.Instance.hideBanner ();
 		//GoTo.LoadEnvironmentChoose();
 	}
-
+	IEnumerator showIntersential()
+	{
+		yield return new WaitForEndOfFrame ();
+		AdMob_Manager.Instance.showInterstitial ();
+		yield return null;
+	}
 	public void onShopPress()
 	{
 		loadScreen.SetActive (true);
@@ -34,6 +43,7 @@ public class StartMenu : MonoBehaviour {
 	void Start()
 	{
 		IAS_Manager.Instance.ResetMainBanners(); 
+		AdMob_Manager.Instance.showBanner (false, true);
 	}
 	void Update()
 	{

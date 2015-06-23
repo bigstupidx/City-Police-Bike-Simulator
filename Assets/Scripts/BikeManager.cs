@@ -253,5 +253,6 @@ public class BikeManager : MonoBehaviour {
 		{
 			bikesContols[i].ToggleControlTypeBtn();
 		}
+		releaseAll ();
 	}
 }

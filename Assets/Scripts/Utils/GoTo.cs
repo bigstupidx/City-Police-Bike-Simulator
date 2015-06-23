@@ -2,16 +2,19 @@
 using System.Collections;
 
 public class GoTo : MonoBehaviour {
-	
+
+	public static string currentScene = "";
 
 	public static void LoadMegaCity()
 	{
 		Application.LoadLevel ("main_game_megaCity");
+		currentScene = "main_game_megaCity";
 	}
 
 	public static void LoadMenu()
 	{
 		Application.LoadLevel ("main_menu");
+		currentScene = "main_menu";
 	}
 
 	public static void LoadEnvironmentChoose()

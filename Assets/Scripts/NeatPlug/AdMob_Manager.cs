@@ -22,8 +22,8 @@ public class AdMob_Manager : MonoBehaviour {
 	// Static script instance allowing us to access public variables in this script externally
 	public static AdMob_Manager Instance;
 
-
-	private float curTime = 0f;
+	[HideInInspector]
+	public float curTime = 0f;
 	// This information will allow us to get the state of adverts, see below for the public get variables
 	private bool _isInterstitialReady = false;
 	private bool _isInterstitialLoading = false;
@@ -141,8 +141,8 @@ public class AdMob_Manager : MonoBehaviour {
 	}
 	void Update()
 	{
-			curTime+=Time.deltaTime;
-			if(curTime > timeForIntersentialRepeat)
+		curTime+=Time.deltaTime;
+		if(curTime > timeForIntersentialRepeat && GoTo.currentScene == "main_game_megaCity")
 			{
 				curTime = 0f;
 				showInterstitial();

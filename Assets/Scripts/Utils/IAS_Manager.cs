@@ -125,7 +125,6 @@ public class IAS_Manager : MonoBehaviour
 	
 	public Texture GetAdTexture(int bannerIndex, bool isBackscreen = false)
 	{
-		
 		if(!isBackscreen)
 		{
 			return Main_BannerTextures[bannerIndex - 1];

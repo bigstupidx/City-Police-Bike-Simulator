@@ -119,6 +119,19 @@ public class Game : MonoBehaviour {
 		circleRemaining -= data.GetFoundItemsCount ();
 		hideFoundItems ();
 		showScore ();
+		StartCoroutine (checkBanner ());
+	}
+
+	IEnumerator checkBanner()
+	{
+		yield return new WaitForEndOfFrame ();
+		while(true)
+		{
+			if(AdMob_Manager.Instance.isBannerVisible)
+				AdMob_Manager.Instance.hideBanner();
+			yield return new WaitForSeconds(1f);
+		}
+		yield return null;
 	}
 
 	void hideFoundItems ()

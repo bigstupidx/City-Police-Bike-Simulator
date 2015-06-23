@@ -11,7 +11,7 @@ public class CarAI : MonoBehaviour {
 	private float rotateSpeed = 1f;
 	//	private float movementSpeed = 1000f;
 	//	private float maxVelocity = 12f;
-	private float movementSpeed = 400f;
+	public float movementSpeed = 400f;
 	private float maxVelocity = 12f;
 	private List<Transform> points;
 	private int currentIndx = 0;
@@ -20,6 +20,8 @@ public class CarAI : MonoBehaviour {
 
 
 	private bool isRide = false;
+	Transform motik;
+	BoxCollider collider;
 	void Start () 
 	{
 		//Transform centerOfmass = transform.Find("centerMass");
@@ -28,6 +30,8 @@ public class CarAI : MonoBehaviour {
 		int count = spline.transform.childCount;
 		for (int i = 0; i<count; i++)
 			points.Add (spline.transform.GetChild(i));
+		motik = GameObject.Find ("Motorbike 1").transform;
+		collider = gameObject.GetComponent<BoxCollider> ();
 	}
 	
 	// Update is called once per frame
@@ -39,7 +43,14 @@ public class CarAI : MonoBehaviour {
 			isRide = buttons.activeSelf;
 			return;
 		}
-		
+		if(Vector3.Distance(motik.position,transform.position) < 10f)
+		{
+			collider.enabled = true;
+		}
+		else
+		{
+			collider.enabled = false;
+		}
 		setTarget ();
 		Vector3 targetDir = target.transform.position - transform.position;
 		targetDir.y = 0f;
